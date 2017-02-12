@@ -4,4 +4,4 @@ set(sources
 	"4 Gewinnt.cpp"
 )
 
-add_executable(hello ${sources})
+add_executable(${sources})
