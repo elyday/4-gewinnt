@@ -7,6 +7,4 @@ set(sources
 	Functions.h
 )
 
-find_package(OpenCV REQUIRED)
 add_executable(${target} ${sources})
-target_link_libraries(${target} ${OpenCV_LIBS})
