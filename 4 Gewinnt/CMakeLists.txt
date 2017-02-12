@@ -4,3 +4,5 @@ set(sources
 	4Gewinnt.cpp,
 	Functions.h
 )
+
+add_executable(hello ${sources})

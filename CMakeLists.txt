@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project("4 Gewinnt")
+project(4Gewinnt)
 
 set(DEBUG_FLAGS "-std=c++11 -g -O1 -Wall -Wextra -Werror -pedantic")
 set(RELEASE_FLAGS "-std=c++11 -O3 -Wall -Wextra -Werror -pedantic")
