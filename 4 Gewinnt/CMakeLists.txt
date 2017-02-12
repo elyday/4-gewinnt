@@ -1,7 +1,7 @@
 message(STATUS "Building 4 Gewinnt")
 
 set(sources
-	4Gewinnt.cpp
+	"4 Gewinnt.cpp"
 )
 
 add_executable(hello ${sources})
