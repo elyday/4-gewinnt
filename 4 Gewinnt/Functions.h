@@ -35,18 +35,18 @@ int nextFree(int fieldArray[8][8], int column) {
 			return i;
 		}
 	}
-	cout << "Die Spalte ist bereits voll, wähle eine andere!\n";
+	cout << "Die Spalte ist bereits voll, waehle eine andere!\n";
 	return -1;
 }
 
 int Eingabe(int actor) {
 	int column;
 	if (actor == 1) {
-		cout << "Spieler 1: Wähle eine Spalte (1-8): ";
+		cout << "Spieler 1: Waehle eine Spalte (1-8): ";
 		cin >> column;
 	}
-	else if (actor == 2) {
-		cout << "Spieler 2: Wähle eine Spalte (1-8): ";
+	else {
+		cout << "Spieler 2: Waehle eine Spalte (1-8): ";
 		cin >> column;
 	}
 
@@ -65,6 +65,7 @@ int checkHorizontal(int fieldArray[8][8], int column, int actor) {
 			return 1;
 		}
 	}
+	return 0;
 }
 
 int checkPerpendicular(int fieldArray[8][8], int column, int actor) {
@@ -73,4 +74,5 @@ int checkPerpendicular(int fieldArray[8][8], int column, int actor) {
 			return 1;
 		}
 	}
+	return 0;
 }
