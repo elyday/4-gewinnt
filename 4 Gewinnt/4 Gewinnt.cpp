@@ -45,12 +45,12 @@ int main()
 		else
 			actor = 1;
 
-		int m = system("cls");
+		system("cls");
 	}
 	
 	Ausgabe(fieldArray);
 	cout << "Spieler " << winplayer << " hat gewonnen.\n";
 
-	int mm = system("pause");
+	system("pause");
     return 0;
 }
