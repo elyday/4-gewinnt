@@ -42,19 +42,24 @@ int nextFree(int fieldArray[8][8], int column) {
 int Eingabe(int actor) {
 	int column;
 	if (actor == 1) {
-		cout << "Spieler 1: Waehle eine Spalte (1-8): ";
+		cout << "Spieler 1: Waehle eine Spalte (1-8 | 100 zum aufgeben): ";
 		cin >> column;
 	}
 	else {
-		cout << "Spieler 2: Waehle eine Spalte (1-8): ";
+		cout << "Spieler 2: Waehle eine Spalte (1-8 | 100 zum aufgeben): ";
 		cin >> column;
 	}
+
 
 	if (column >= 0 && column < 9) {
 		return column;
 	}
+	else if (column == 100) {
+		cout << "Du hast das Programm beendet!" << endl;
+		return 101;
+	}
 	else {
-		cout << "Fehlerhafte Eingabe, wiederhole!\n";
+		cout << "Fehlerhafte Eingabe, wiederhole!" << endl;
 		return 100;
 	}
 }
