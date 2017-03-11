@@ -39,9 +39,9 @@ int nextFree(int fieldArray[8][8], int *column) {
 	return -1;
 }
 
-int Eingabe(int *actor) {
+int Eingabe(int actor) {
 	int column;
-	if (*actor == 1) {
+	if (actor == 1) {
 		cout << "Spieler 1: Waehle eine Spalte (1-8 | 100 zum aufgeben | 101 zum beenden): ";
 		cin >> column;
 	}
@@ -68,18 +68,18 @@ int Eingabe(int *actor) {
 	}
 }
 
-int checkHorizontal(int fieldArray[8][8], int *column, int *actor) {
+int checkHorizontal(int fieldArray[8][8], int column, int *actor) {
 	for (int i = 7; i > -1; i--) {
-		if ((fieldArray[i][*column] == *actor && fieldArray[i - 1][*column] == *actor && fieldArray[i - 2][*column] == *actor && fieldArray[i - 3][*column] == *actor) || (fieldArray[i][*column] == *actor && fieldArray[i + 1][*column] == *actor && fieldArray[i + 2][*column] == *actor && fieldArray[i + 3][*column] == *actor) || (fieldArray[i][*column] == *actor && fieldArray[i + 1][*column] == *actor && fieldArray[i - 1][*column] == *actor && fieldArray[i - 2][*column] == *actor) || (fieldArray[i][*column] == *actor && fieldArray[i + 1][*column] == *actor && fieldArray[i - 1][*column] == *actor && fieldArray[i + 2][*column] == *actor)) {
+		if ((fieldArray[i][column] == *actor && fieldArray[i - 1][column] == *actor && fieldArray[i - 2][column] == *actor && fieldArray[i - 3][column] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i + 1][column] == *actor && fieldArray[i + 2][column] == *actor && fieldArray[i + 3][column] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i + 1][column] == *actor && fieldArray[i - 1][column] == *actor && fieldArray[i - 2][column] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i + 1][column] == *actor && fieldArray[i - 1][column] == *actor && fieldArray[i + 2][column] == *actor)) {
 			return 1;
 		}
 	}
 	return 0;
 }
 
-int checkPerpendicular(int fieldArray[8][8], int *column, int *actor) {
+int checkPerpendicular(int fieldArray[8][8], int column, int *actor) {
 	for (int i = 7; i > -1; i--) {
-		if ((fieldArray[i][*column] == *actor && fieldArray[i][*column - 1] == *actor && fieldArray[i][*column - 2] == *actor && fieldArray[i][*column - 3] == *actor) || (fieldArray[i][*column] == *actor && fieldArray[i][*column + 1] == *actor && fieldArray[i][*column + 2] == *actor && fieldArray[i][*column + 3] == *actor) || (fieldArray[i][*column] == *actor && fieldArray[i][*column + 1] == *actor && fieldArray[i][*column - 1] == *actor && fieldArray[i][*column - 2] == *actor) || (fieldArray[i][*column] == *actor && fieldArray[i][*column + 1] == *actor && fieldArray[i][*column - 1] == *actor && fieldArray[i][*column + 2] == *actor)) {
+		if ((fieldArray[i][column] == *actor && fieldArray[i][column - 1] == *actor && fieldArray[i][column - 2] == *actor && fieldArray[i][column - 3] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i][column + 1] == *actor && fieldArray[i][column + 2] == *actor && fieldArray[i][column + 3] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i][column + 1] == *actor && fieldArray[i][column - 1] == *actor && fieldArray[i][column - 2] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i][column + 1] == *actor && fieldArray[i][column - 1] == *actor && fieldArray[i][column + 2] == *actor)) {
 			return 1;
 		}
 	}

@@ -23,7 +23,7 @@ int main()
 			Ausgabe(fieldArray);
 
 			while (column == 100 || field == -1) {
-				column = Eingabe(&actor);
+				column = Eingabe(actor);
 				if (column == 101) {
 					field = 101;
 				}
@@ -37,12 +37,12 @@ int main()
 
 			if (field < 8 && field >= 0) {
 				Zug(fieldArray, &column, &field, &actor);
-				int win = checkHorizontal(fieldArray, &column - 1, &actor);
+				int win = checkHorizontal(fieldArray, column - 1, &actor);
 				if (win == 1) {
 					winplayer = actor;
 				}
 				else {
-					int win = checkPerpendicular(fieldArray, &column - 1, &actor);
+					int win = checkPerpendicular(fieldArray, column - 1, &actor);
 					if (win == 1)
 						winplayer = actor;
 				}
