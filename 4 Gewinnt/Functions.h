@@ -15,14 +15,24 @@ void startNewGame(int fieldArray[8][8]) {
 }
 
 void Ausgabe(int fieldArray[8][8]) {
+	char output;
+	cout << "|------------------|" << endl;
 	for (int i = 0; i < 8; i++)
 	{
+		cout << "| ";
 		for (int d = 0; d < 8; d++)
 		{
-			cout << fieldArray[i][d] << " ";
+			if (fieldArray[i][d] == 1)
+				output = 'X';
+			else if (fieldArray[i][d] == 2)
+				output = 'O';
+			else
+				output = ' ';
+			cout << output << " ";
 		}
-		cout << "\n";
+		cout << " |" << endl;
 	}
+	cout << "|------------------|" << endl;
 }
 
 void Zug(int fieldArray[8][8], int *column, int *field, int *actor) {
