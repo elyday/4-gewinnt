@@ -68,22 +68,27 @@ int Eingabe(int actor) {
 	}
 }
 
-int checkHorizontal(int fieldArray[8][8], int column, int *actor) {
-	for (int i = 7; i > -1; i--) {
-		if ((fieldArray[i][column] == *actor && fieldArray[i - 1][column] == *actor && fieldArray[i - 2][column] == *actor && fieldArray[i - 3][column] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i + 1][column] == *actor && fieldArray[i + 2][column] == *actor && fieldArray[i + 3][column] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i + 1][column] == *actor && fieldArray[i - 1][column] == *actor && fieldArray[i - 2][column] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i + 1][column] == *actor && fieldArray[i - 1][column] == *actor && fieldArray[i + 2][column] == *actor)) {
-			return 1;
-		}
+bool checkWinDir(int fieldArray[8][8], int row, int column, int rowinc, int colinc, int *actor) {
+	for (int i = 0; i < 4; i++)
+	{
+	
+		if (row < 0 || row > 7 || column < 0 || column >7 || fieldArray[row][column] != *actor) return false;
+		row += rowinc;
+		column += colinc;
 	}
-	return 0;
+	return true;
 }
 
-int checkPerpendicular(int fieldArray[8][8], int column, int *actor) {
-	for (int i = 7; i > -1; i--) {
-		if ((fieldArray[i][column] == *actor && fieldArray[i][column - 1] == *actor && fieldArray[i][column - 2] == *actor && fieldArray[i][column - 3] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i][column + 1] == *actor && fieldArray[i][column + 2] == *actor && fieldArray[i][column + 3] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i][column + 1] == *actor && fieldArray[i][column - 1] == *actor && fieldArray[i][column - 2] == *actor) || (fieldArray[i][column] == *actor && fieldArray[i][column + 1] == *actor && fieldArray[i][column - 1] == *actor && fieldArray[i][column + 2] == *actor)) {
-			return 1;
-		}
-	}
-	return 0;
+bool checkWinPos(int fieldArray[8][8], int row, int column, int *actor) {
+	if (checkWinDir(fieldArray, row, column, 1, -1, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, 1, 1, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, -1, -1, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, -1, 1, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, 0, 1, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, 0, -1, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, 1, 0, actor)) return true;
+	if (checkWinDir(fieldArray, row, column, -1, 0, actor)) return true;
+	return false;
 }
 
 void resetGame(int fieldArray[8][8], int *winplayer, int *actor) {
