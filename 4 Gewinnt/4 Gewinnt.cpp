@@ -37,14 +37,17 @@ int main()
 
 			if (field < 8 && field >= 0) {
 				Zug(fieldArray, &column, &field, &actor);
-				int win = checkHorizontal(fieldArray, column - 1, &actor);
-				if (win == 1) {
-					winplayer = actor;
-				}
-				else {
-					int win = checkPerpendicular(fieldArray, column - 1, &actor);
-					if (win == 1)
-						winplayer = actor;
+
+				for (int i = 0; i < 8; i++)
+				{
+					for (int d = 0; d < 8; d++)
+					{
+						bool win = checkWinPos(fieldArray, i, d, &actor);
+						if (win) {
+							winplayer = actor;
+							break;
+						}
+					}
 				}
 			}
 
